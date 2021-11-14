@@ -19,6 +19,7 @@ class MealViewModel {
             switch result {
             case .success(let listOf):
                 self?.foodTypes = listOf.categories
+                self?.foodTypes.sort {$0.str ?? "" < $1.str ?? ""}
                 completion()
             case .failure(let error):
                 print("Error processing json data: \(error)")
