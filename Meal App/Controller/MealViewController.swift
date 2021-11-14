@@ -35,6 +35,14 @@ extension MealViewController: UITableViewDelegate {
         
         return 140.0
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "CategoryViewController") as?
+            CategoryViewController {
+            vc.category_text = viewModel.cellForRowAt(indexPath: indexPath).str ?? ""
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+            
+    }
 }
 
 extension MealViewController: UITableViewDataSource {
