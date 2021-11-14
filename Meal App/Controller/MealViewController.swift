@@ -16,17 +16,25 @@ class MealViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        self.tableView.delegate = self
         loadMealData()
     }
 
     private func loadMealData() {
         viewModel.getFoodCategoriesData { [weak self] in
             self?.tableView.dataSource = self
+            self?.tableView.delegate = self
+            
             self?.tableView.reloadData()
         }
     }
 
+}
+extension MealViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 140.0
+    }
 }
 
 extension MealViewController: UITableViewDataSource {
