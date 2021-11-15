@@ -25,3 +25,19 @@ struct Category: Decodable {
         case desc = "strCategoryDescription"
     }
 }
+
+struct Meals: Decodable {
+    let meals: [Meal]
+}
+
+struct Meal: Decodable {
+    let id: String?
+    let str: String?
+    let thumb: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case id = "idMeal"
+        case str  = "strMeal"
+        case thumb = "strMealThumb"
+    }
+}

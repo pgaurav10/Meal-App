@@ -21,6 +21,8 @@
 		09E5570E273E4A9F00105357 /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E5570D273E4A9F00105357 /* MealViewModel.swift */; };
 		09E55710273EFB5900105357 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E5570F273EFB5900105357 /* MealTableViewCell.swift */; };
 		09E557172741887100105357 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E557162741887100105357 /* CategoryViewController.swift */; };
+		09E557192741C4D900105357 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E557182741C4D900105357 /* CategoryTableViewCell.swift */; };
+		09E5571B2741F43600105357 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E5571A2741F43600105357 /* CategoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		09E5570D273E4A9F00105357 /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
 		09E5570F273EFB5900105357 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		09E557162741887100105357 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		09E557182741C4D900105357 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		09E5571A2741F43600105357 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 			children = (
 				09E556DF273BAF8C00105357 /* Main.storyboard */,
 				09E5570F273EFB5900105357 /* MealTableViewCell.swift */,
+				09E557182741C4D900105357 /* CategoryTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				09E5570D273E4A9F00105357 /* MealViewModel.swift */,
+				09E5571A2741F43600105357 /* CategoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -315,12 +321,14 @@
 			files = (
 				09E5570C273BB6EA00105357 /* Model.swift in Sources */,
 				09E556DE273BAF8C00105357 /* MealViewController.swift in Sources */,
+				09E5571B2741F43600105357 /* CategoryViewModel.swift in Sources */,
 				09E55710273EFB5900105357 /* MealTableViewCell.swift in Sources */,
 				09E556DA273BAF8C00105357 /* AppDelegate.swift in Sources */,
 				09E557172741887100105357 /* CategoryViewController.swift in Sources */,
 				09E5570A273BB06E00105357 /* ApiService.swift in Sources */,
 				09E556DC273BAF8C00105357 /* SceneDelegate.swift in Sources */,
 				09E5570E273E4A9F00105357 /* MealViewModel.swift in Sources */,
+				09E557192741C4D900105357 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

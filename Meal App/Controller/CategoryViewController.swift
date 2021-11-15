@@ -10,25 +10,48 @@ import UIKit
 class CategoryViewController: UIViewController {
 
     @IBOutlet weak var category: UILabel!
-    var category_text: String = ""
+    @IBOutlet weak var tableView: UITableView!
     
+    var viewModel = CategoryViewModel()
+    var category_text = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    
-        category.text = category_text
+        
+        loadMealTypesData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func loadMealTypesData() {
+        viewModel.getMealsForCategoryData(category: category_text) { 
+            self.tableView.dataSource = self
+            self.tableView.delegate = self
+            
+            self.tableView.reloadData()
+        }
     }
-    */
+}
 
+extension CategoryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 140.0
+    }
+}
+
+extension CategoryViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellc", for: indexPath) as! CategoryTableViewCell
+        
+        let type = viewModel.cellForRowAt(indexPath: indexPath)
+        cell.setCellWithValuesOf(meal: type)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRowsInSection(section: section)
+    }
+    
+    
 }
