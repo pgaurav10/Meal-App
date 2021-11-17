@@ -16,6 +16,7 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var instructions: UITextView!
     @IBOutlet weak var quantity: UITextView!
     @IBOutlet weak var recipe_label: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var viewModel = RecipeViewModel()
     var id_text = ""
@@ -26,19 +27,21 @@ class RecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        spinner.hidesWhenStopped = true
         instructions.isEditable = false
         link.isEditable = false
         quantity.isEditable = false
         
-        self.video.text = "Video: "
-        self.recipe_label.text = "Recipe: "
-
+        spinner.startAnimating()
         loadRecipeDetail()
         
     }
     //MARK: Fetch Data
     func loadRecipeDetail() {
         viewModel.getRecipeFromMealData(id: id_text) { [weak self] in
+            self?.video.text = "Video: "
+            self?.recipe_label.text = "Recipe: "
+
             self?.recipe = self?.viewModel.getRecipe()
             self?.loadPageData()
         }
@@ -145,7 +148,7 @@ class RecipeViewController: UIViewController {
         
         getImageDataFrom(url: image)
         
-        
+        spinner.stopAnimating()
     }
     
     //Get Image

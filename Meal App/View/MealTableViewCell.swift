@@ -17,7 +17,6 @@ class MealTableViewCell: UITableViewCell {
     private var url: String = ""
     
     //MARK: Set Cell Values
-    
     func setCellWithValuesOf(category: Category) {
         updateUI(imgSrc: category.thumb, type: category.str, id: category.id, description: category.desc)
     }
