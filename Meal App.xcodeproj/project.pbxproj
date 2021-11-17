@@ -23,6 +23,8 @@
 		09E557172741887100105357 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E557162741887100105357 /* CategoryViewController.swift */; };
 		09E557192741C4D900105357 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E557182741C4D900105357 /* CategoryTableViewCell.swift */; };
 		09E5571B2741F43600105357 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E5571A2741F43600105357 /* CategoryViewModel.swift */; };
+		09E5571F2742D24200105357 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E5571E2742D24200105357 /* RecipeViewModel.swift */; };
+		09E557212742EF0A00105357 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E557202742EF0900105357 /* RecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		09E557162741887100105357 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		09E557182741C4D900105357 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		09E5571A2741F43600105357 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		09E5571E2742D24200105357 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
+		09E557202742EF0900105357 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 			children = (
 				09E5570D273E4A9F00105357 /* MealViewModel.swift */,
 				09E5571A2741F43600105357 /* CategoryViewModel.swift */,
+				09E5571E2742D24200105357 /* RecipeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 			children = (
 				09E556DD273BAF8C00105357 /* MealViewController.swift */,
 				09E557162741887100105357 /* CategoryViewController.swift */,
+				09E557202742EF0900105357 /* RecipeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -326,6 +332,8 @@
 				09E556DA273BAF8C00105357 /* AppDelegate.swift in Sources */,
 				09E557172741887100105357 /* CategoryViewController.swift in Sources */,
 				09E5570A273BB06E00105357 /* ApiService.swift in Sources */,
+				09E5571F2742D24200105357 /* RecipeViewModel.swift in Sources */,
+				09E557212742EF0A00105357 /* RecipeViewController.swift in Sources */,
 				09E556DC273BAF8C00105357 /* SceneDelegate.swift in Sources */,
 				09E5570E273E4A9F00105357 /* MealViewModel.swift in Sources */,
 				09E557192741C4D900105357 /* CategoryTableViewCell.swift in Sources */,
@@ -507,6 +515,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MG35RT5N6W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Meal App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -534,6 +543,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MG35RT5N6W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Meal App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

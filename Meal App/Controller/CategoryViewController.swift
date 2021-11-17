@@ -18,7 +18,7 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        self.category.text = category_text
         loadMealTypesData()
     }
     
@@ -37,6 +37,14 @@ extension CategoryViewController: UITableViewDelegate {
         
         return 140.0
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "RecipeViewController") as?
+            RecipeViewController {
+            vc.id_text = viewModel.cellForRowAt(indexPath: indexPath).id ?? ""
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+            
+    }
 }
 
 extension CategoryViewController: UITableViewDataSource {
@@ -52,6 +60,4 @@ extension CategoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section: section)
     }
-    
-    
 }

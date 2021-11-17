@@ -101,4 +101,49 @@ class ApiService {
         }
         dataTask?.resume()
     }
+    
+    func getMealDetails(id: String, completion: @escaping (Result<Recipes,Error>) -> Void) {
+        let mealDetails = "https://www.themealdb.com/api/json/v1/1/lookup.php?i="+id
+        
+        guard let url = URL(string: mealDetails) else {return}
+        
+        //URL session work in background
+        
+        dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            // Handle Error
+            
+            if let error = error {
+                completion(.failure(error))
+                print("Data Task error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                //Empty Response
+                print("Empty response")
+                return
+            }
+            print("Response status code: \(response.statusCode)")
+            
+            guard let data = data else {
+                //Empty Data
+                print("Empty Data")
+                return
+            }
+            
+            do {
+                //Parse data
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode(Recipes.self, from: data)
+                
+                DispatchQueue.main.async {
+                    completion(.success(jsonData))
+                }
+            } catch let error {
+                completion(.failure(error))
+            }
+        }
+        dataTask?.resume()
+    }
 }
