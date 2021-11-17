@@ -7,7 +7,7 @@
 
 import Foundation
 
-//First Page - Categories
+//MARK: First Page - Categories
 struct Categories : Decodable {
     let categories: [Category]
 }
@@ -26,7 +26,7 @@ struct Category: Decodable {
     }
 }
 
-//Second Page - Meals
+//MARK: Second Page - Meals
 struct Meals: Decodable {
     let meals: [Meal]
 }
@@ -43,7 +43,7 @@ struct Meal: Decodable {
     }
 }
 
-//Third Page - Recipes
+//MARK: Third Page - Recipes
 struct Recipes: Decodable {
     let recipe: [Recipe]
     

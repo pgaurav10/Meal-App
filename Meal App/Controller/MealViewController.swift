@@ -30,6 +30,7 @@ class MealViewController: UIViewController {
     }
 
 }
+//MARK: Table View Delegate
 extension MealViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -41,10 +42,9 @@ extension MealViewController: UITableViewDelegate {
             vc.category_text = viewModel.cellForRowAt(indexPath: indexPath).str ?? ""
             self.navigationController?.pushViewController(vc, animated: true)
         }
-            
     }
 }
-
+//MARK: Table View DataSource
 extension MealViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealTableViewCell
@@ -58,6 +58,4 @@ extension MealViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section: section)
     }
-    
-    
 }

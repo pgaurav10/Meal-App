@@ -14,6 +14,7 @@ class CategoryViewController: UIViewController {
     
     var viewModel = CategoryViewModel()
     var category_text = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,23 +32,25 @@ class CategoryViewController: UIViewController {
         }
     }
 }
-
+// MARK: Table View Delegate
 extension CategoryViewController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 140.0
     }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "RecipeViewController") as?
             RecipeViewController {
             vc.id_text = viewModel.cellForRowAt(indexPath: indexPath).id ?? ""
             self.navigationController?.pushViewController(vc, animated: true)
         }
-            
     }
 }
-
+// MARK: Table View DataSource
 extension CategoryViewController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellc", for: indexPath) as! CategoryTableViewCell
         
@@ -56,7 +59,7 @@ extension CategoryViewController: UITableViewDataSource {
         
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section: section)
     }

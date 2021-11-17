@@ -32,18 +32,18 @@ class RecipeViewController: UIViewController {
         
         self.video.text = "Video: "
         self.recipe_label.text = "Recipe: "
-        //print(self.id_text)
+
         loadRecipeDetail()
         
     }
-    
+    //MARK: Fetch Data
     func loadRecipeDetail() {
         viewModel.getRecipeFromMealData(id: id_text) { [weak self] in
             self?.recipe = self?.viewModel.getRecipe()
             self?.loadPageData()
         }
     }
-    
+    //MARK: Load Page Content
     func loadPageData() {
         self.name.text = recipe?.str
         self.instructions.text = recipe?.instructions

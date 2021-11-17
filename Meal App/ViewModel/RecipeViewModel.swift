@@ -12,6 +12,7 @@ class RecipeViewModel {
     private var apiService = ApiService()
     private var mealDetails = [Recipe]()
     
+    //MARK: Fetch Data from API
     func getRecipeFromMealData(id:String, completion: @escaping () -> ()) {
         
         apiService.getMealDetails(id:id) { [weak self] (result) in

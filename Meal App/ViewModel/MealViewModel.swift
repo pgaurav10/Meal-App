@@ -12,6 +12,7 @@ class MealViewModel {
     private var apiService = ApiService()
     private var foodTypes = [Category]()
     
+    //MARK: Fetch Data from API
     func getFoodCategoriesData(completion: @escaping () -> ()) {
         
         apiService.getFoodTypes { [weak self] (result) in

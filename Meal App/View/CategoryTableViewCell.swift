@@ -13,12 +13,12 @@ class CategoryTableViewCell: UITableViewCell {
     @IBOutlet weak var desc: UILabel!
     var url = ""
     
-    //Set Cell Values
+    //MARK: Set Cell Values
     func setCellWithValuesOf(meal: Meal) {
         updateUI(imgSrc: meal.thumb, description: meal.str)
     }
     
-    //Update UI
+    //MARK: Update UI
     private func updateUI(imgSrc: String?, description: String?) {
         
         self.desc.text = description
@@ -36,7 +36,7 @@ class CategoryTableViewCell: UITableViewCell {
         getImageDataFrom(url: image)
     }
     
-    //Get Image
+    //MARK: Get Image
     private func getImageDataFrom(url: URL) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             

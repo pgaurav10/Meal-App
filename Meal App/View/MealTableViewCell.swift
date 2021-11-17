@@ -16,13 +16,13 @@ class MealTableViewCell: UITableViewCell {
     
     private var url: String = ""
     
-    //Set Cell Values
+    //MARK: Set Cell Values
     
     func setCellWithValuesOf(category: Category) {
         updateUI(imgSrc: category.thumb, type: category.str, id: category.id, description: category.desc)
     }
     
-    //Update UI
+    //MARK: Update UI
     private func updateUI(imgSrc: String?, type: String?, id: String?, description: String?) {
         
         self.id.text = id
@@ -42,7 +42,7 @@ class MealTableViewCell: UITableViewCell {
         getImageDataFrom(url: image)
     }
     
-    //Get Image
+    //MARK: Get Image
     private func getImageDataFrom(url: URL) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
