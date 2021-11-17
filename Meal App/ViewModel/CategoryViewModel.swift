@@ -11,6 +11,7 @@ class CategoryViewModel {
     
     private var apiService = ApiService()
     private var mealTypes = [Meal]()
+    private var filteredMealTypes = [Meal]()
     
     //MARK: Fetch Data from API
     func getMealsForCategoryData(category:String, completion: @escaping () -> ()) {
@@ -20,6 +21,8 @@ class CategoryViewModel {
             case .success(let listOf):
                 self?.mealTypes = listOf.meals
                 self?.mealTypes.sort {$0.str ?? "" < $1.str ?? ""}
+                self?.filteredMealTypes = listOf.meals
+                self?.filteredMealTypes.sort {$0.str ?? "" < $1.str ?? ""}
                 completion()
             case .failure(let error):
                 print("Error processing json data: \(error)")
@@ -27,13 +30,29 @@ class CategoryViewModel {
         }
     }
     func numberOfRowsInSection(section: Int) -> Int {
-        if mealTypes.count != 0 {
-            return mealTypes.count
+        if filteredMealTypes.count != 0 {
+            return filteredMealTypes.count
         }
         return 0
     }
     
     func cellForRowAt(indexPath: IndexPath) -> Meal {
-        return mealTypes[indexPath.row]
+        return filteredMealTypes[indexPath.row]
+    }
+    
+    func searchForText(text: String) {
+        filteredMealTypes = []
+        
+        if(text == "") {
+            filteredMealTypes = mealTypes
+        }
+        else {
+            for mealType in mealTypes {
+                var str = mealType.str!
+                if((str.lowercased().contains(text.lowercased()))) {
+                    filteredMealTypes.append(mealType)
+                }
+            }
+        }
     }
 }

@@ -7,10 +7,11 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController {
+class CategoryViewController: UIViewController,UISearchBarDelegate {
 
     @IBOutlet weak var category: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var viewModel = CategoryViewModel()
     var category_text = ""
@@ -20,6 +21,7 @@ class CategoryViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.category.text = category_text
+        
         loadMealTypesData()
     }
     
@@ -27,9 +29,16 @@ class CategoryViewController: UIViewController {
         viewModel.getMealsForCategoryData(category: category_text) { 
             self.tableView.dataSource = self
             self.tableView.delegate = self
+            self.searchBar.delegate = self
             
             self.tableView.reloadData()
         }
+    }
+    
+    //MARK: Search Bar Config
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.searchForText(text: searchText)
+        self.tableView.reloadData()
     }
 }
 // MARK: Table View Delegate
