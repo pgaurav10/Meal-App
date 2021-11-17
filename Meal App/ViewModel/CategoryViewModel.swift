@@ -48,7 +48,7 @@ class CategoryViewModel {
         }
         else {
             for mealType in mealTypes {
-                var str = mealType.str!
+                let str = mealType.str!
                 if((str.lowercased().contains(text.lowercased()))) {
                     filteredMealTypes.append(mealType)
                 }
