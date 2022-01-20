@@ -33,7 +33,6 @@ class MealViewController: UIViewController {
 //MARK: Table View Delegate
 extension MealViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return 140.0
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
